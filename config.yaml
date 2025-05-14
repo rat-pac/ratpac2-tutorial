@@ -66,7 +66,21 @@ contact: 'ratpac2-coord@lbl.gov'
 
 # Order of episodes in your lesson
 episodes: 
-- introduction.md
+- 01-rat-macro.md
+- 02-generators.md
+- 03-detector-geometry.md
+- 04-photon-production.md
+- 05-photon-propagation.md
+- 06-photon-detection.md
+- 07-processors.md
+- 08-fitters.md
+- 09-output.md
+- 10-input.md
+- 11-ratdb.md
+- 12-private-experiment.md
+- 13-rattests.md
+- 14-analysis.md
+- 15-misc.md
 
 # Information for Learners
 learners: 
