@@ -1,5 +1,5 @@
 ---
-title: "Using Markdown"
+title: "Photon production"
 teaching: 10
 exercises: 2
 ---

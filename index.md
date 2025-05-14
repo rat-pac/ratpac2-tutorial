@@ -2,8 +2,6 @@
 site: sandpaper::sandpaper_site
 ---
 
-This is a new lesson built with [The Carpentries Workbench][workbench]. 
+Welcome to the RAT-PAC Summer School!
 
-
-[workbench]: https://carpentries.github.io/sandpaper-docs
-
+FIXME: More logistics informations can be added here. 
