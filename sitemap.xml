@@ -4,6 +4,51 @@
     <loc>https://rat-pac.github.io/ratpac2-tutorial/01-introduction.html</loc>
   </url>
   <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/01-rat-macro.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/02-generators.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/03-detector-geometry.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/04-photon-production.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/05-photon-propagation.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/06-photon-detection.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/07-processors.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/08-fitters.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/09-output.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/10-input.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/11-ratdb.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/12-private-experiment.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/13-rattests.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/14-analysis.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/15-misc.html</loc>
+  </url>
+  <url>
     <loc>https://rat-pac.github.io/ratpac2-tutorial/404.html</loc>
   </url>
   <url>
@@ -23,6 +68,51 @@
   </url>
   <url>
     <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/01-introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/01-rat-macro.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/02-generators.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/03-detector-geometry.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/04-photon-production.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/05-photon-propagation.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/06-photon-detection.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/07-processors.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/08-fitters.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/09-output.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/10-input.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/11-ratdb.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/12-private-experiment.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/13-rattests.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/14-analysis.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/15-misc.html</loc>
   </url>
   <url>
     <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/404.html</loc>
