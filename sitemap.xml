@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/00-setup.html</loc>
+  </url>
+  <url>
     <loc>https://rat-pac.github.io/ratpac2-tutorial/01-introduction.html</loc>
   </url>
   <url>
@@ -65,6 +68,9 @@
   </url>
   <url>
     <loc>https://rat-pac.github.io/ratpac2-tutorial/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/00-setup.html</loc>
   </url>
   <url>
     <loc>https://rat-pac.github.io/ratpac2-tutorial/instructor/01-introduction.html</loc>

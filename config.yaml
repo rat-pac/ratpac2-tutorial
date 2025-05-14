@@ -66,6 +66,7 @@ contact: 'ratpac2-coord@lbl.gov'
 
 # Order of episodes in your lesson
 episodes: 
+- 00-setup.md
 - 01-rat-macro.md
 - 02-generators.md
 - 03-detector-geometry.md
