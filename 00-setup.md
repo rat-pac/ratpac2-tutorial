@@ -4,7 +4,7 @@ teaching: 10
 exercises: 2
 ---
 
-:::::questions
+::::: questions
 - How to install RAT-PAC2 on various systems?
 :::::
 
@@ -86,9 +86,11 @@ A simulation should be performed, and rat should exit with no error. You should 
 
 ## via ratpac-setup
 We also provide a script to facilitate dependency installation and management. You can find it [here](https://github.com/rat-pac/ratpac-setup#).
+
 ::::: caution
 `ratpac-setup` is written primarily with Ubuntu 22.04 in mind. However, many RAT developers have tried it out in different distros, including fedora and arch linux. MacOS should work as well.
 :::::
+
 There are some packages that ratpac-setup assumes to be present in the operating system. You can make sure that they are installed with the following one-liner in ubuntu:
 ```sh
 apt install git curl build-essential vim libx11-dev libxpm-dev libqt5opengl5-dev ssh cmake \
