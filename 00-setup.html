@@ -217,6 +217,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#via-apptainer">via Apptainer</a></li>
+<li><a href="#via-ratpac-setup">via ratpac-setup</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -571,11 +572,70 @@ standard compilation procedure:</p>
 You should now see a log file as well as <code>output.root</code> in
 your directory. Congratulations, you now have a working version of
 RATPAC2!</p>
+</div>
+</section><section><h2 class="section-heading" id="via-ratpac-setup">via ratpac-setup<a class="anchor" aria-label="anchor" href="#via-ratpac-setup"></a></h2>
+<hr class="half-width"><p>We also provide a script to facilitate dependency installation and
+management. You can find it <a href="https://github.com/rat-pac/ratpac-setup#" class="external-link">here</a>. ::::: caution
+<code>ratpac-setup</code> is written primarily with Ubuntu 22.04 in
+mind. However, many RAT developers have tried it out in different
+distros, including fedora and arch linux. MacOS should work as well.
+::::: There are some packages that ratpac-setup assumes to be present in
+the operating system. You can make sure that they are installed with the
+following one-liner in ubuntu:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">apt</span> install git curl build-essential vim libx11-dev libxpm-dev libqt5opengl5-dev ssh cmake <span class="dt">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>    xserver-xorg-video-intel libxft-dev libxext-dev libxerces-c-dev <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    libxkbcommon-x11-dev libopengl-dev python3 python3-dev python3-numpy <span class="dt">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    libcurl4-gnutls-dev ca-certificates libssl-dev libffi-dev</span></code></pre>
+</div>
+<p>Most of these packages should already be present on a standard linux
+system. On distros other than ubuntu, you probably need to change some
+of the package names. Please reach out to us if you run into trouble
+with this.</p>
+<p>You can then install the needed dependencies using
+<code>setup.sh</code>. There’s many packages provided. We recommend at
+least the following:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">./setup.sh</span> <span class="at">--only</span> root geant4 cry tensorflow nlopt hdf5 chroma</span></code></pre>
+</div>
+<p>You can append <code>-j$(nproc)</code> to use all available CPUs on
+your system for compilation. This is highly recommended, especially for
+root and geant4, since they take quite a while to compile.</p>
+<p>After this is complete, you can then access all the installed
+packages in your shell with <code>source env.sh</code>. Then you can
+follow the standard RAT compilation instructions:</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:rat-pac/ratpac-two.git</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="bu">cd</span> ratpac-two</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="fu">make</span> <span class="co"># add -j $(nproc) if you would like to compile on multiple cores (recommended).</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="bu">source</span> ratpac.sh</span></code></pre>
+</div>
+<p>and <em>voila</em>! :::::callout You can also install ratpac-two
+itself via <code>./setup.sh ratpac</code>, but this is not recommended
+if you plan on working on the code yourself. ::::: :::::caution A common
+mishap with this method is that you are running these commands in a
+shell polluted by other enviornment variables. Be extra careful that you
+do not have another instance of root or geant4 installed somewhere else
+on your system that’s polluting your environment variables, as this
+might cause the compilation procedure to misbehave. Double check that
+there’s no reference to external geant4/root installed in your
+<code>~/.bashrc</code>. You can also examine the environment variables
+currently set in your shell by running <code>env</code>. Make sure that
+there’s no variables pointing to binaries / data files elsewhere in your
+system.</p>
+<p>Whenever a installation breaks, the first thing to try should be to
+close out of your terminal / ssh session, and try the install again in a
+clean shell. :::::</p>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
