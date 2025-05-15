@@ -618,22 +618,43 @@ follow the standard RAT compilation instructions:</p>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="fu">make</span> <span class="co"># add -j $(nproc) if you would like to compile on multiple cores (recommended).</span></span>
 <span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="bu">source</span> ratpac.sh</span></code></pre>
 </div>
-<p>and <em>voila</em>! :::::callout You can also install ratpac-two
-itself via <code>./setup.sh ratpac</code>, but this is not recommended
-if you plan on working on the code yourself. ::::: :::::caution A common
-mishap with this method is that you are running these commands in a
-shell polluted by other enviornment variables. Be extra careful that you
-do not have another instance of root or geant4 installed somewhere else
-on your system that’s polluting your environment variables, as this
-might cause the compilation procedure to misbehave. Double check that
-there’s no reference to external geant4/root installed in your
-<code>~/.bashrc</code>. You can also examine the environment variables
-currently set in your shell by running <code>env</code>. Make sure that
-there’s no variables pointing to binaries / data files elsewhere in your
-system.</p>
+<p>and <em>voila</em>!</p>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout</h3>
+<div class="callout-content">
+<p>You can also install ratpac-two itself via
+<code>./setup.sh ratpac</code>, but this is not recommended if you plan
+on working on the code yourself.</p>
+</div>
+</div>
+</div>
+<div id="caution2" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Caution</h3>
+<div class="callout-content">
+<p>A common mishap with this method is that you are running these
+commands in a shell polluted by other enviornment variables. Be extra
+careful that you do not have another instance of root or geant4
+installed somewhere else on your system that’s polluting your
+environment variables, as this might cause the compilation procedure to
+misbehave. Double check that there’s no reference to external
+geant4/root installed in your <code>~/.bashrc</code>. You can also
+examine the environment variables currently set in your shell by running
+<code>env</code>. Make sure that there’s no variables pointing to
+binaries / data files elsewhere in your system.</p>
 <p>Whenever a installation breaks, the first thing to try should be to
 close out of your terminal / ssh session, and try the install again in a
-clean shell. :::::</p>
+clean shell.</p>
+</div>
+</div>
+</div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
