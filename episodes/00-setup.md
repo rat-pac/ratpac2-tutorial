@@ -4,111 +4,77 @@ teaching: 10
 exercises: 2
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
-
-- How do you write a lesson using Markdown and `{sandpaper}`?
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Compile and install ratpac2 through various methods.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Introduction
+## via Apptainer
+Installing ratpac2 via containers is the easiest and most reproducible method of installation. If you are not familiar with containers in general, take a look at [Introduction to Apptainer](https://apptainer.org/docs/user/main/introduction.html).
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.html) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output. 
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
-
-What you need to know is that there are three sections required for a valid
-Carpentries lesson:
-
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
-
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
+### Installing Apptainer / Singularity
+#### Linux
+Apptainer (formerly Singularity) can be easily installed in any linux system through a package manager. In most shared clusters, it should already be installed. 
+You can most likely install apptainer via:
 ```
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
+apt install apptainer # ubuntu
+dnf install apptainer # fedora or rhel/alma9
+pacman -S apptainer # arch linux
 ```
+If you are running into issues, please consult the official [apptainer installation guide](https://apptainer.org/docs/admin/main/installation.html#installation-on-linux).
 
-:::::::::::::::::::::::::::::::::
+#### Windows
+Windows users can follow the linux instruction after installing Windows Subsystem on Linux (WSL) following [this guide](https://learn.microsoft.com/en-us/windows/wsl/install). We recommend using ubuntu 22.04 as your choice of linux environments, but the choice is yours.
 
+#### MacOS
+MacOS is not supported by Apptainer. You can either read along to find the manual install procedures, or try to [get apptainer working with a lightweight virtual machine](https://apptainer.org/docs/admin/main/installation.html#mac).
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+### Running RAT from a container directly
+We provide a container with the latest version of RAT-PAC2 built in. You can download the container via:
+```
+apptainer pull ratpac-two.sif docker://ratpac/ratpac-two:nightly
+```
+Afterwards, you can enter the container by running:
+```
+apptainer run ratpac-two.sif
+```
+which will drop you into a shell with rat installed. Or, if you can run rat directly by using:
+```
+apptainer run ratpac-two.sif rat macro_to_run.mac ...
+```
+::::::::::::::::::::::::::::::::::::: note
 
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can use standard markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
-
-::::::::::::::::::::::::::::::::::::: callout
-
-Callout sections can highlight information.
-
-They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present "asides": 
-content that is not central to the narrative of the lesson,
-e.g. by providing the answer to a commonly-asked question.
+There's some known issues with this way of running rat. Notably, it is very likely that geometry visualizations will not run like this.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
+### Compiling RAT inside the container (recommended)
+We also provide a container with all the dependencies required to compile RAT-PAC2 installed. This is the recommended way of installing RAT for the purpose of developing rat or poking around the code in general.
 
+First, make sure you clone the code repository:
+```
+git clone git@github.com:rat-pac/ratpac-two.git
+```
+Pull the following container instead:
+```
+apptainer pull ratpac-two-base.sif docker://ratpac/ratpac-two:latest-base
+```
+Afterwards, enter the container:
+```
+apptainer run ratpac-two-base.sif
+```
+By default, apptainer should have mounted your current directory into the container. You can quickly check this by making sure that all the files in this container is still there by running `ls`. 
 
-## Math
+At this point, you can double check that all the dependencies are indeed included in your current shell. Namely, you can run `which root` and `which geant4-config`. Both of them should point somewhere in `/rapac-setup/local`.
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
-
-::::::::::::::::::::::::::::::::::::: keypoints 
-
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-[r-markdown]: https://rmarkdown.rstudio.com/
+If all goes well, you can then compile RAT-PAC2 following the standard compilation procedure:
+```
+cd ratpac-two
+make # add -j $(nproc) if you would like to compile on multiple cores (recommended).
+source ratpac.sh
+```
+You can test that your installation is functional by running:
+```
+rat macros/validation/electron.mac
+```
+A simulation should be performed, and rat should exit with no error. You should now see a log file as well as `output.root` in your directory. Congratulations, you now have a working version of RATPAC2!
