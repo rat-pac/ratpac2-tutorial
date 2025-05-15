@@ -112,10 +112,11 @@ make # add -j $(nproc) if you would like to compile on multiple cores (recommend
 source ratpac.sh
 ```
 and _voila_!
-:::::callout
+
+::::: callout
 You can also install ratpac-two itself via `./setup.sh ratpac`, but this is not recommended if you plan on working on the code yourself. 
 :::::
-:::::caution
+::::: caution
 A common mishap with this method is that you are running these commands in a shell polluted by other enviornment variables. Be extra careful that you do not have another instance of root or geant4 installed somewhere else on your system that's polluting your environment variables, as this might cause the compilation procedure to misbehave. Double check that there's no reference to external geant4/root installed in your `~/.bashrc`. You can also examine the environment variables currently set in your shell by running `env`. Make sure that there's no variables pointing to binaries / data files elsewhere in your system. 
 
 Whenever a installation breaks, the first thing to try should be to close out of your terminal / ssh session, and try the install again in a clean shell.
