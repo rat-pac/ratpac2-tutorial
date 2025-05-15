@@ -4,9 +4,12 @@ teaching: 10
 exercises: 2
 ---
 
+:::::questions
+- How to install RAT-PAC2 on various systems?
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Compile and install ratpac2 through various methods.
+- Know how to run ratpac2 via a container.
+- Compile ratpac2 via `ratpac-setup`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -43,7 +46,7 @@ which will drop you into a shell with rat installed. Or, if you can run rat dire
 ```
 apptainer run ratpac-two.sif rat macro_to_run.mac ...
 ```
-::::::::::::::::::::::::::::::::::::: note
+::::::::::::::::::::::::::::::::::::: caution
 
 There's some known issues with this way of running rat. Notably, it is very likely that geometry visualizations will not run like this.
 
