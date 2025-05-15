@@ -4,9 +4,14 @@ teaching: 10
 exercises: 2
 ---
 
+:::::questions
+- How to install RAT-PAC2 on various systems?
+:::::
+
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Compile and install ratpac2 through various methods.
+- Know how to run ratpac2 via a container.
+- Compile ratpac2 via `ratpac-setup`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -17,7 +22,7 @@ Installing ratpac2 via containers is the easiest and most reproducible method of
 #### Linux
 Apptainer (formerly Singularity) can be easily installed in any linux system through a package manager. In most shared clusters, it should already be installed. 
 You can most likely install apptainer via:
-```
+```sh
 apt install apptainer # ubuntu
 dnf install apptainer # fedora or rhel/alma9
 pacman -S apptainer # arch linux
@@ -32,18 +37,18 @@ MacOS is not supported by Apptainer. You can either read along to find the manua
 
 ### Running RAT from a container directly
 We provide a container with the latest version of RAT-PAC2 built in. You can download the container via:
-```
+```sh
 apptainer pull ratpac-two.sif docker://ratpac/ratpac-two:nightly
 ```
 Afterwards, you can enter the container by running:
-```
+```sh
 apptainer run ratpac-two.sif
 ```
 which will drop you into a shell with rat installed. Or, if you can run rat directly by using:
-```
+```sh
 apptainer run ratpac-two.sif rat macro_to_run.mac ...
 ```
-::::::::::::::::::::::::::::::::::::: note
+::::::::::::::::::::::::::::::::::::: caution
 
 There's some known issues with this way of running rat. Notably, it is very likely that geometry visualizations will not run like this.
 
@@ -52,15 +57,15 @@ There's some known issues with this way of running rat. Notably, it is very like
 We also provide a container with all the dependencies required to compile RAT-PAC2 installed. This is the recommended way of installing RAT for the purpose of developing rat or poking around the code in general.
 
 First, make sure you clone the code repository:
-```
+```sh
 git clone git@github.com:rat-pac/ratpac-two.git
 ```
 Pull the following container instead:
-```
+```sh
 apptainer pull ratpac-two-base.sif docker://ratpac/ratpac-two:latest-base
 ```
 Afterwards, enter the container:
-```
+```sh
 apptainer run ratpac-two-base.sif
 ```
 By default, apptainer should have mounted your current directory into the container. You can quickly check this by making sure that all the files in this container is still there by running `ls`. 
@@ -68,13 +73,13 @@ By default, apptainer should have mounted your current directory into the contai
 At this point, you can double check that all the dependencies are indeed included in your current shell. Namely, you can run `which root` and `which geant4-config`. Both of them should point somewhere in `/rapac-setup/local`.
 
 If all goes well, you can then compile RAT-PAC2 following the standard compilation procedure:
-```
+```sh
 cd ratpac-two
 make # add -j $(nproc) if you would like to compile on multiple cores (recommended).
 source ratpac.sh
 ```
 You can test that your installation is functional by running:
-```
+```sh
 rat macros/validation/electron.mac
 ```
 A simulation should be performed, and rat should exit with no error. You should now see a log file as well as `output.root` in your directory. Congratulations, you now have a working version of RATPAC2!

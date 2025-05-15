@@ -83,6 +83,7 @@ episodes:
 - 14-analysis.md
 - 15-misc.md
 
+disable_sidebar_numbering: true
 # Information for Learners
 learners: 
 
