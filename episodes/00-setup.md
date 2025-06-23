@@ -80,7 +80,7 @@ source ratpac.sh
 ```
 You can test that your installation is functional by running:
 ```sh
-rat macros/validation/electron.mac
+rat macros/examples/electron.mac
 ```
 A simulation should be performed, and rat should exit with no error. You should now see a log file as well as `output.root` in your directory. Congratulations, you now have a working version of RATPAC2!
 
